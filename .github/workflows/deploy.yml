@@ -53,7 +53,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: us-east-1
       run: |
-        FUNCTION_NAME="lambda-fun-ru"
+        FUNCTION_NAME="cicd_lambda_${{ github.ref_name }}"
         REGION="us-east-1"
         echo deploying to lambda function : $FUNCTION_NAME
 
@@ -103,3 +103,4 @@ jobs:
           --environment "$ENV_VARIABLES"
         fi
 
+        
