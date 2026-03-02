@@ -14,11 +14,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     
-    - name: Install dependencies
-      run : |
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install system tools
+      run: |
         sudo apt-get update
-        sudo apt-get install -y python -m venv venv python3-pip jq zip
-        pip3 install boto3
+        sudo apt-get install -y jq zip
 
     - name: Set enviroment variables
       id: set-env-vars
